@@ -10,7 +10,7 @@ from setuptools import find_packages, setup
 
 
 setup(
-    name="django_agol_oauth2",
+    name="django-agol-oauth2",
     version="0.0.1",
     author="Travis Bock",
     author_email="tbock@innovateteam.com",
