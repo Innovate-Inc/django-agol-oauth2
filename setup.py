@@ -15,7 +15,6 @@ setup(
     author="Travis Bock",
     author_email="tbock@innovateteam.com",
     license="MIT",
-    long_description=README,
     description="Provide oauth2 agol login functionality to django projects",
     url="https://github.com/Innovate-Inc/django-agol-oauth2",
     packages=['agol_auth'],
