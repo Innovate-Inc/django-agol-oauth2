@@ -1,1 +1,1 @@
-recursive-include agol_auth/templates *
+recursive-include agol_oauth2/templates *

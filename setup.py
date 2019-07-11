@@ -17,7 +17,7 @@ setup(
     license="MIT",
     description="Provide oauth2 agol login functionality to django projects",
     url="https://github.com/Innovate-Inc/django-agol-oauth2",
-    packages=['agol_auth'],
+    packages=['agol_oauth2'],
     install_requires=['django-localflavor'],
     classifiers=[
         "Programming Language :: Python :: 3",
