@@ -12,7 +12,8 @@ class AGOLOAuth2(BaseOAuth2):
     EXTRA_DATA = [
         ('refresh_token', 'refresh_token'),
         ('expires_in', 'expires'),
-        ('username', 'username')
+        ('username', 'username'),
+        ('email', 'email')
     ]
 
     def _base_url(self):
@@ -31,11 +32,11 @@ class AGOLOAuth2(BaseOAuth2):
             return {}
 
         return {
-            'username': response['username'],
-            'email': response['email'],
-            'fullname': response['fullName'],
-            'first_name': response['fullName'].split()[0],
-            'last_name': response['fullName'].split()[1]
+            'username': response.get('username'),
+            'email': response.get('email'),
+            'fullname': response.get('fullName'),
+            'first_name': response.get('firstName'),
+            'last_name': response.get('lastName')
         }
 
     def user_data(self, access_token, *args, **kwargs):
