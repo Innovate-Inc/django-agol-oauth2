@@ -1,0 +1,36 @@
+<style>
+  .esriSignIn {
+    background: #0079c1;
+    line-height: 1.71429em;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.125);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.125);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.125);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -webkit-transition: all .05s linear;
+    -moz-transition: all .05s linear;
+    -o-transition: all .05s linear;
+    transition: all .05s linear;
+    font-family: "Avenir LT W01 65 Medium", Arial, Helvetica, sans-serif;
+    font-size: 0.875em;
+    padding: 0.3em 0.7em;
+    border: 0;
+    color: white;
+    display: inline-block;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.125);
+    letter-spacing: 1px;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+  }
+</style>
+<a href="{% url 'social:begin' 'agol' %}" style="cursor: pointer">
+  <span class="esriSignIn">Login using EPA GeoPlatform</span>
+</a>

@@ -11,13 +11,13 @@ from setuptools import find_packages, setup
 
 setup(
     name="django-agol-oauth2",
-    version="0.0.1",
+    version="0.0.2",
     author="Travis Bock",
     author_email="tbock@innovateteam.com",
     license="MIT",
     description="Provide oauth2 agol login functionality to django projects",
     url="https://github.com/Innovate-Inc/django-agol-oauth2",
-    packages=['agol_oauth2', 'agol_oauth2.migrations'],
+    packages=['agol_oauth2', 'agol_oauth2.migrations', 'agol_oauth2.templatetags'],
     install_requires=['django-localflavor', 'social-auth-app-django'],
     classifiers=[
         "Programming Language :: Python :: 3",
