@@ -10,7 +10,9 @@ admin.site.unregister(User)
 class AGOLUserFieldsInline(admin.StackedInline):
     model = AGOLUserFields
 
+RegisteredUserAdmin = admin.site._registry.get(User)
+admin.site.unregister(User)
 
 @admin.register(User)
 class AGOLUserAdmin(UserAdmin):
-    inlines = (AGOLUserFieldsInline,)
+    inlines = RegisteredUserAdmin.inlines + [AGOLUserFieldsInline]
