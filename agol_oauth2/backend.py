@@ -9,6 +9,7 @@ class AGOLOAuth2(BaseOAuth2):
     _ACCESS_TOKEN_URL = 'https://{}/sharing/rest/oauth2/token'
     REQUIRES_EMAIL_VALIDATION = False
     ACCESS_TOKEN_METHOD = 'POST'
+    REDIRECT_STATE = False
     EXTRA_DATA = [
         ('refresh_token', 'refresh_token'),
         ('expires_in', 'expires'),
@@ -49,10 +50,10 @@ class AGOLOAuth2(BaseOAuth2):
         )
 
     # api does support state... need to remove this and test
-    def validate_state(self):
-        return None
+    # def validate_state(self):
+    #     return None
 
     # added so we can verify redirect_uri without having to actually redirect there
     # a slight hack to allow us to redirect to frontend oauthcallback page
-    def get_redirect_uri(self, state=None):
-        return self.setting('REDIRECT_URI')
+    # def get_redirect_uri(self, state=None):
+    #     return self.setting('REDIRECT_URI')
