@@ -37,7 +37,8 @@ class AGOLOAuth2(BaseOAuth2):
             'email': response.get('email'),
             'fullname': response.get('fullName'),
             'first_name': response.get('firstName'),
-            'last_name': response.get('lastName')
+            'last_name': response.get('lastName'),
+            'groups': [x.get('id') for x in response.get('groups')] # get list of group ids user is a member of
         }
 
     def user_data(self, access_token, *args, **kwargs):

@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from social_core.exceptions import AuthException
+from agol_oauth2.models import AGOLUserFields
 
 
 def associate_by_username(backend, details, user=None, *args, **kwargs):
@@ -24,3 +25,18 @@ def associate_by_username(backend, details, user=None, *args, **kwargs):
                     'is_new': False}
 
 
+def create_users_in_flagged_groups(backend, details, user=None, *args, **kwargs):
+    if user:
+        return None
+
+    username = details.get('username')
+    groups = details.get('groups')
+    whitelist_groups = backend.settings('WHITELIST_GROUPS')
+    matching_groups = set(groups) & set(whitelist_groups)
+
+    if username and len(matching_groups) > 0:
+        user = User.objects.create_user(username, details['email'], User.objects.make_random_password())
+        AGOLUserFields.objects.create(user=user, agol_username=username)
+
+        return {'user': user,
+                'is_new': False}
