@@ -31,7 +31,7 @@ def create_users_in_flagged_groups(backend, details, user=None, *args, **kwargs)
 
     username = details.get('username')
     groups = details.get('groups')
-    whitelist_groups = backend.settings('WHITELIST_GROUPS')
+    whitelist_groups = backend.setting('WHITELIST_GROUPS')
     matching_groups = set(groups) & set(whitelist_groups)
 
     if username and len(matching_groups) > 0:
