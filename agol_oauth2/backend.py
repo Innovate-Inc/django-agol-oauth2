@@ -1,5 +1,4 @@
 from social_core.backends.oauth import BaseOAuth2
-from django.conf import settings
 
 
 class AGOLOAuth2(BaseOAuth2):
