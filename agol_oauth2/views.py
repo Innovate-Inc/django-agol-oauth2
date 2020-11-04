@@ -1,7 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.utils.decorators import method_decorator
+from django.views.generic import View
 
 from social_django.utils import load_strategy
+import requests
 
 @method_decorator(login_required, name='dispatch')
 class EsriProxy(View):

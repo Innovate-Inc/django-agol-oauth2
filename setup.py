@@ -18,7 +18,7 @@ setup(
     description="Provide oauth2 agol login functionality to django projects",
     url="https://github.com/Innovate-Inc/django-agol-oauth2",
     packages=['agol_oauth2', 'agol_oauth2.migrations'],
-    install_requires=['django-localflavor', 'social-auth-app-django'],
+    install_requires=['django-localflavor', 'social-auth-app-django', 'requests'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
