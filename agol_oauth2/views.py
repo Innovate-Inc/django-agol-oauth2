@@ -5,6 +5,8 @@ from django.views.generic import View
 
 from social_django.utils import load_strategy
 import requests
+from django.conf import settings
+
 
 @method_decorator(login_required, name='dispatch')
 class EsriProxy(View):
@@ -27,14 +29,10 @@ class EsriProxy(View):
             url = self.get_url(request)
             token = self.get_token(request)
 
-            '''Right now just allow all authorized users to use proxy but we can furthur filter access
-            down to those who have access to the data intake'''
-            # request.user.has_perm('aum.view_dataintake') # check if user has permission to view data intakes
-            '''we will need to build out further the row level access to data intake probably using django-guardian'''
-            # data_dump = DataIntake.objects.get(pk=match.group(5)) # get obj to check permissions in teh future
-
             # put token in params and parse query params to new request
-            if 'services.arcgis.com/cJ9YHowT8TU7DUyn' in url or 'utility.arcgis.com' in url:
+            proxy_allow_list = settings.SOCIAL_AUTH_AGOL_PROXY_ALLOW_LIST
+
+            if any(u in url for u in proxy_allow_list):
                 params = dict(token=token)
             else:
                 params = dict()
