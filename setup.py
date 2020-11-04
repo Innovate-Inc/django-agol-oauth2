@@ -11,7 +11,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="django-agol-oauth2",
-    version="0.0.3",
+    version="0.0.4",
     author="Travis Bock",
     author_email="tbock@innovateteam.com",
     license="MIT",
