@@ -4,5 +4,5 @@ from .views import EsriProxy
 
 
 urlpatterns = [
-    url(r'^api/proxy/', EsriProxy.as_view()),
+    url(r'^proxy/', EsriProxy.as_view()),
 ]
