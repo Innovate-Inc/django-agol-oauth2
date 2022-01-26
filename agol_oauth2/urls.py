@@ -1,8 +1,8 @@
-from django.conf.urls import url
+from django.conf.urls import re_path
 
 from .views import EsriProxy
 
 
 urlpatterns = [
-    url(r'^proxy/', EsriProxy.as_view()),
+    re_path(r'^proxy/', EsriProxy.as_view()),
 ]
