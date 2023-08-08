@@ -13,4 +13,4 @@ admin.site.unregister(User)
 
 @admin.register(User)
 class AGOLUserAdmin(UserAdmin):
-    inlines = RegisteredUserAdmin.inlines + [AGOLUserFieldsInline]
+    inlines = RegisteredUserAdmin.inlines + (AGOLUserFieldsInline,)
