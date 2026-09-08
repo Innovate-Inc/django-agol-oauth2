@@ -49,6 +49,15 @@ class AGOLOAuth2(BaseOAuth2):
             }
         )
 
+    def refresh_token_params(self, token, *args, **kwargs):
+        client_id, client_secret = self.get_key_and_secret()
+        return {
+            'refresh_token': token,
+            'grant_type': 'refresh_token',
+            'client_id': client_id,
+            # 'client_secret': client_secret
+        }
+
     # api does support state... need to remove this and test
     # def validate_state(self):
     #     return None
